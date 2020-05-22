@@ -70,7 +70,7 @@ class OverviewViewModel : ViewModel() {
             val getPropertiesDeferred = MarsApi.retrofitService.getProperties()
             try {
                 val listResult = getPropertiesDeferred.await()
-                if (listResult.size > 0) {
+                if (listResult.isNotEmpty()) {
                     _property.value = listResult[0]
                 }
             } catch (e: Exception) {
